@@ -11,12 +11,18 @@
     </div>
   <% end %>
 
+  <div class="flex gap-20 items-center" >
   <div>
     <%= form.label :content, style: "display: block" %>
-    <%= form.text_area :content %>
+    <%= form.text_area :content ,class:"bg-gray-800" %>
+    <%= form.number_field :user_id, id: :task_user_id, value: current_user.id, type: :hidden %>
   </div>
 
-  <div>
+
+
+ <button type="button" class="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
+
     <%= form.submit %>
   </div>
+  </button>
 <% end %>

@@ -1,10 +1,17 @@
-<h1>Editing task</h1>
-
+ <h1 class="text-4xl font-bold text-center text-gray-800 text-white my-5">Editing Tasks</h1>
+  <div class="container mx-auto py-1">
+    <div class="mx-auto max-w-xxl bg-gray-800 rounded-lg shadow-md p-8 my-2 justify-between items-center">
 <%= render "form", task: @task %>
+
 
 <br>
 
 <div>
-  <%= link_to "Show this task", @task %> |
+  <button type="button" class="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
+
   <%= link_to "Back to tasks", tasks_path %>
+  </button>
+</div>
+
+</div>
 </div>

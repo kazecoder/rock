@@ -1,14 +1,56 @@
-<p style="color: green"><%= notice %></p>
 
-<h1>Tasks</h1>
+
+<h1 class="text-4xl font-bold text-center text-white-800 py-20">Tasks</h1>
+<div class="container mx-auto">
+<%= link_to new_task_path do %>
+<button
+  title="Add New"
+  class="group cursor-pointer outline-none hover:rotate-90 duration-300"
+>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="50px"
+    height="50px"
+    viewBox="0 0 24 24"
+    class="stroke-blue-400 fill-none group-hover:fill-blue-800 group-active:stroke-blue-200 group-active:fill-blue-600 group-active:duration-0 duration-300"
+  >
+    <path
+      d="M12 22C17.5 22 22 17.5 22 12C22 6.5 17.5 2 12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22Z"
+      stroke-width="1.5"
+    ></path>
+    <path d="M8 12H16" stroke-width="1.5"></path>
+    <path d="M12 16V8" stroke-width="1.5"></path>
+  </svg>
+</button>
+<%end%>
+</div>
+
 
 <div id="tasks">
   <% @tasks.each do |task| %>
-    <%= render task %>
-    <p>
-      <%= link_to "Show this task", task %>
-    </p>
+  <% if task.user == current_user%>
+   <div class="container mx-auto py-1">
+    <div class="mx-auto max-w-xxl bg-gray-800 rounded-lg shadow-md p-8 my-2 justify-between items-center">
+
+        <div class="flex-none">
+  <h1>  <%= task.content %></h1>
+  </div>
+  <div class="flex flex-row-reverse">
+  <div class="ml-2">
+    <div class="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100
+    focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
+
+    <%= link_to "Edit", edit_task_path(task)%>
+    </div>
+  </div>
+  <div class="ml-2">
+    <%= button_to "Destroy", task, method: :delete,class:"text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700" %>
+    </div>
+    </div>
+
+
+     </div>
+    </div>
+    <%end%>
   <% end %>
 </div>
-
-<%= link_to "New task", new_task_path %>

@@ -1,17 +1,26 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <%= render 'header' %>
+    <%= render 'home/header' %>
     <title>ToDoList</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+     <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+    <%= javascript_include_tag 'application', 'data-turbo-track': 'reload' %>
+
   </head>
 
-  <body>
+
+    <p class="notice"><%= notice %></p>
+       <p class="alert"><%= alert %></p>
+
+  <body class="min-h-screen bg-gradient-to-b from-slate-900 to-cyan-700 font-sans text-white ">
+
+
     <%= yield %>
+
   </body>
 </html>

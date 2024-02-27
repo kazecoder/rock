@@ -1,5 +1,6 @@
 class TasksController < ApplicationController
   before_action :set_task, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!,except: [:index,:show]
 
   # GET /tasks or /tasks.json
   def index
@@ -65,6 +66,6 @@ class TasksController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def task_params
-      params.require(:task).permit(:content)
+      params.require(:task).permit(:content,:user_id)
     end
 end

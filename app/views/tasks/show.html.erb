@@ -1,5 +1,5 @@
-<p style="color: green"><%= notice %></p>
-
+  <div class="container mx-auto py-1">
+    <div class="mx-auto max-w-xxl bg-gray-800 rounded-lg shadow-md p-8 my-2 justify-between items-center">
 <%= render @task %>
 
 <div>
@@ -7,4 +7,7 @@
   <%= link_to "Back to tasks", tasks_path %>
 
   <%= button_to "Destroy this task", @task, method: :delete %>
+</div>
+
+</div>
 </div>
